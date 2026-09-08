@@ -1,12 +1,12 @@
 baseURL = 'https://example.com/'
-languageCode = 'en-us'
-title = 'Chris'
+locale = 'en-US'
+title = 'S. Chris Colbert'
 enableRobotsTXT = true
 
 [[module.mounts]]
 source = 'static'
 target = 'static'
-excludeFiles = ['**/.gitkeep']
+files = ['! **/.gitkeep']
 
 [pagination]
 pagerSize = 10
@@ -15,7 +15,7 @@ pagerSize = 10
 tag = 'tags'
 
 [params]
-description = 'Notes on development, engineering, faith, and life.'
+description = 'Notes on engineering, development, faith, and life.'
 
 [permalinks]
 posts = '/posts/:slug/'

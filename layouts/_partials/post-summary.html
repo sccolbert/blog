@@ -1,6 +1,6 @@
 <article class="post-summary">
-  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }} <small>(draft)</small>{{ end }}</h2>
-  <div>{{ .Summary }}</div>
-  {{ partial "tags.html" . }}
+  <div class="entry-date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02" }}<span>{{ .Date.Format "2006" }}</span></time>{{ if .Draft }}<span class="sample-label">{{ if .Params.sample }}Sample{{ else }}Draft{{ end }}</span>{{ end }}</div>
+  <div class="entry-copy"><div class="entry-kind">{{ .Params.format | default "Essay" }} <span aria-hidden="true">/</span> {{ .ReadingTime }} min read</div><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  <div class="entry-summary">{{ .Summary }}</div>
+  {{ partial "tags.html" . }}</div>
 </article>

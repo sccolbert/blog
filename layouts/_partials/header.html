@@ -1,8 +1,7 @@
 <header class="site-header">
-  <a class="site-name" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+  <a class="site-name" href="{{ "/" | relURL }}"><span class="monogram" aria-hidden="true">SCC</span><span>{{ site.Title }}<small>A personal notebook</small></span></a>
   <nav aria-label="Main navigation">
-    <a href="{{ "/posts/" | relURL }}">Posts</a>
-    <a href="{{ "/tags/" | relURL }}">Tags</a>
-    <a href="{{ "/about/" | relURL }}">About</a>
+    <a href="{{ "/posts/" | relURL }}"{{ if eq .Section "posts" }} aria-current="page"{{ end }}>Writing</a>
+    <a href="{{ "/tags/" | relURL }}"{{ if or (eq .Kind "term") (eq .Kind "taxonomy") }} aria-current="page"{{ end }}>Topics</a>
   </nav>
 </header>

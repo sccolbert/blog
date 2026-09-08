@@ -1,10 +1,11 @@
 {{ define "main" }}
 <article>
   <header class="article-header prose">
+    <a class="back-link" href="{{ "/posts/" | relURL }}">← Back to the notebook</a>
     {{ if eq .Section "posts" }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
     <h1>{{ .Title }}</h1>
     {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
-    {{ if .Draft }}<p class="draft-label">Draft · demonstration or work in progress</p>{{ end }}
+    {{ if .Draft }}<p class="draft-label">{{ if .Params.sample }}Sample writing for exploring the design. Not a personal account.{{ else }}Draft · demonstration or work in progress{{ end }}</p>{{ end }}
     {{ partial "tags.html" . }}
   </header>
   <div class="content">{{ .Content }}</div>

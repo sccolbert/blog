@@ -5,7 +5,8 @@ No first-party JavaScript. Live YouTube iframes are supported.
 
 ## Local preview
 
-Install Hugo **0.148.2** (the version pinned in CI), then run:
+Install Hugo with `brew install hugo`. The version pinned in CI is **0.165.0**;
+check your local version with `hugo version`. Then run:
 
 ```sh
 hugo server --buildDrafts --disableLiveReload
@@ -18,8 +19,10 @@ development JavaScript. Refresh the browser after edits.
 hugo --gc --minify --panicOnWarning
 ```
 
-This creates the production site in public/. Drafts are excluded. The initial
-homepage intentionally has no published posts; the component sampler is a draft.
+This creates the production site in public/. Drafts are excluded. Preview with
+--buildDrafts to see six sample posts plus the component sampler. Samples carry
+params.sample = true and visible labels; their prose is fictional design content.
+The production homepage has no published posts until real writing is added.
 
 ## Write a post
 
@@ -35,8 +38,9 @@ build after their publication date; there is no scheduled publishing job yet.
 Public Git history includes draft source files. Keep private writing outside
 this repository.
 
-Regular pages live at content/about.md or another content/<name>.md path.
-Homepage text lives at content/_index.md. Site settings live in hugo.toml.
+Regular pages can live at content/<name>.md. The homepage introduction replaces
+a separate About page. Homepage text lives at content/_index.md; site settings
+live in hugo.toml.
 
 ## Structured content
 

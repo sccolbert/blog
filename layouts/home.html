@@ -1,9 +1,22 @@
 {{ define "main" }}
-<section class="intro prose"><h1>{{ .Title }}</h1>{{ .Content }}</section>
-<section aria-label="Recent posts">
-  {{ $pager := .Paginate (where site.RegularPages "Section" "posts") }}
-  {{ range $pager.Pages }}{{ partial "post-summary.html" . }}
-  {{ else }}<p>First posts coming soon.</p>{{ end }}
-  {{ partial "pagination.html" $pager }}
+<section class="intro">
+  <div class="intro-copy"><p class="eyebrow">Craft, code &amp; the rest of life</p><h1>{{ .Title }}</h1>{{ .Content }}</div>
+  {{ partial "notebook.html" . }}
 </section>
+<div class="journal-layout">
+  <section aria-labelledby="writing-heading">
+    <div class="section-heading"><h2 id="writing-heading">From the notebook</h2><a href="{{ "/posts/" | relURL }}">All writing ↗</a></div>
+    {{ $pager := .Paginate (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+    {{ range $pager.Pages }}{{ partial "post-summary.html" . }}
+    {{ else }}<p>A fresh notebook. The first entries are on their way.</p>{{ end }}
+    {{ partial "pagination.html" $pager }}
+  </section>
+  <aside class="margin-notes" aria-label="Explore the notebook">
+    <p class="eyebrow">A few common threads</p>
+    <h2>Different interests.<br>One life.</h2>
+    <p>The work we do, the things we believe, and the way we spend our days have a way of overlapping.</p>
+    {{ with site.Taxonomies.tags }}<ul class="topic-list">{{ range .Alphabetical }}<li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span>{{ printf "%02d" .Count }}</span></a></li>{{ end }}</ul>{{ end }}
+    <div class="margin-note"><span class="small-cross" aria-hidden="true">+</span><p>No particular expertise required.<br>Just bring your curiosity.</p></div>
+  </aside>
+</div>
 {{ end }}

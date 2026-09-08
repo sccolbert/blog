@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs><pattern id="paper" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#ced3c4" stroke-width=".6"/></pattern></defs>
+  <rect width="900" height="500" fill="#e9eadf"/><rect x="30" y="30" width="840" height="440" fill="url(#paper)"/>
+  <g stroke="#354d40" stroke-width="3" stroke-linejoin="round">
+    <path d="M175 165L615 110 735 170 295 230Z" fill="#ded7c0"/>
+    <path d="M175 165V190L295 255 735 195V170L295 230Z" fill="#c9c2aa"/>
+    <path d="M205 205V360L230 375V218M295 255V410L325 405V251M675 202V350L700 347V199M590 217V330L615 326V214" fill="#ded7c0"/>
+    <path d="M325 337L675 290V310L325 357Z" fill="#c9c2aa"/>
+    <path d="M230 309L295 345V366L230 330Z" fill="#c9c2aa"/>
+  </g>
+  <g fill="none" stroke="#8c482e" stroke-width="1"><path d="M175 137L615 82M175 131V143M615 76V88M763 173V347M757 173H769M757 347H769"/><path d="M123 418H757" stroke-dasharray="4 7"/></g>
+  <g fill="#62665c" font-family="monospace" font-size="12" letter-spacing="2"><text x="55" y="65">WORKBENCH / STUDY 01</text><text x="55" y="458">FORM FOLLOWS THE WORK</text><text x="686" y="458">NOT TO SCALE</text></g>
+</svg>

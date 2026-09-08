@@ -14,6 +14,20 @@ registered as an agent skill directory.
 - GitHub Actions renders the complete site and Wrangler deploys static assets.
 - Generated files stay out of Git. Cloudflare handles asset upload reuse.
 - Public GitHub repository: sccolbert/blog, with main as the default branch.
+- Initial visual direction: a personal notebook with parchment, forest green,
+  clay accents, engineering-inspired sans-serif text, and restrained monospace labels. Aim for
+  warmth, mature confidence, and craftsmanship. Precision machining informs the
+  details: a dial-caliper drawing in inline SVG and an instrument-style monogram.
+- Use a local sans-serif font stack for headings and prose, with no font downloads.
+  Keep the handwritten pencil signature as the exception.
+- Display name: S. Chris Colbert. Initials: SCC. Chris is a mechanical engineer
+  who enjoys precision machining. The homepage introduction replaces About.
+- Homepage headline: "Build purposefully. Live thoughtfully." Keep the drawing's
+  caption: "Things worth building on."
+- The caliper's 3.160-inch dimension and handwritten "- John" signature are an
+  intentional reference to John 3:16. The signature uses SVG strokes, not a font.
+- Six draft sample posts exercise essays, reflections, short notes, code,
+  images, columns, callouts, and YouTube commentary. params.sample labels fiction.
 
 ## Places to track work
 
@@ -24,5 +38,5 @@ registered as an agent skill directory.
 ## Still to choose
 
 - Production domain and Cloudflare Worker name.
-- Final visual identity, homepage introduction, and About page copy.
-- Real initial posts, images, and videos; the component sampler is a draft.
+- Further refinements to the machining theme and homepage introduction.
+- Real initial posts, images, and videos; all sample posts remain drafts.

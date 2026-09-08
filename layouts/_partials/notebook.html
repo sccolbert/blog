@@ -1,0 +1,37 @@
+<div class="notebook" aria-hidden="true">
+  <div class="notebook-top"><span>SHOP NOTES</span><span>VOL. 01</span></div>
+  <svg viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="currentColor" stroke-opacity=".12" stroke-width=".7"/></pattern></defs>
+    <rect width="360" height="260" fill="url(#grid)"/>
+    <g transform="rotate(-24 180 130)" stroke="currentColor" stroke-linejoin="round">
+      <path d="M73 108H318V130H73Z" fill="#293f36" stroke-width="1.5"/>
+      <path d="M318 115H335V120H318"/>
+      {{- $railPitch := div 108.0 3.160 -}}
+      {{ range seq 1 34 }}<path d="M{{ add 82 (mul (mul . 0.2) $railPitch) }} 109v{{ if eq (mod . 5) 0 }}9{{ else }}5{{ end }}" stroke-width=".7" stroke-opacity=".7"/>{{ end }}
+      {{ range seq 1 6 }}<text x="{{ add 82 (mul . $railPitch) }}" y="126" text-anchor="middle" fill="currentColor" stroke="none" font-family="monospace" font-size="6">{{ . }}</text>{{ end }}
+      <path d="M65 108V72L72 62 80 89V108" fill="#293f36" stroke-width="1.5"/>
+      <path d="M61 108H81V173L96 196V204L73 192 61 167Z" fill="#293f36" stroke-width="1.8"/>
+      <g transform="translate(48 0)">
+      <path d="M149 108V88L157 66 163 77V108" fill="#293f36" stroke-width="1.5"/>
+      <path d="M145 127H166V167L154 192 132 204V196L145 173Z" fill="#293f36" stroke-width="1.8"/>
+      <rect x="142" y="103" width="62" height="35" rx="3" fill="#293f36" stroke-width="1.5"/>
+      <rect x="154" y="94" width="13" height="9" rx="2" fill="#293f36"/>
+      <path d="M156 96v5M159 96v5M162 96v5" stroke-width=".6"/>
+      <rect x="174" y="139" width="17" height="9" rx="3"/>
+      <path d="M177 141v5M180 141v5M183 141v5M186 141v5" stroke-width=".6"/>
+      <circle cx="174" cy="118" r="29" fill="#293f36" stroke-width="1.8"/>
+      <circle cx="174" cy="118" r="25" stroke-opacity=".45" stroke-width=".7"/>
+      {{ range seq 0 49 }}<path d="M174 94v{{ if eq (mod . 5) 0 }}5{{ else }}2.5{{ end }}" transform="rotate({{ mul . 7.2 }} 174 118)" stroke-width=".8"/>{{ end }}
+      <path d="M174 126V98" transform="rotate(216 174 118)" stroke-width="1.6"/>
+      <circle cx="174" cy="118" r="2.3" fill="currentColor" stroke="none"/>
+      </g>
+      <path d="M96 209V225M180 209V225M96 220H180M96 220l4 -2m-4 2 4 2M180 220l-4 -2m4 2-4 2" stroke-width=".8" stroke-opacity=".7"/>
+      <g class="pencil-signature" transform="translate(117 187) rotate(-3 21 8) scale(.88)">
+        <title>- John</title>
+        <path d="M0 10l6 -.3 M13 3l10 -.4 M20 3l-1 11q-.4 3-3 3l-3-1-.5-3 M26 8l-3 2-.4 5 2 2 3-.4 1.5-2 .2-4-1.3-2.5Z M33 2l-1 15 M32.6 10l3-2 2 .8-.5 8 M41 8l-.5 9 M41 10l3-2 2 .8-.3 8"/>
+      </g>
+      <text x="138" y="216" text-anchor="middle" fill="currentColor" stroke="none" font-family="monospace" font-size="8">3.160&quot;</text>
+    </g>
+  </svg>
+  <div class="notebook-bottom"><span>Things worth<br>building on.</span><span class="notebook-mark">SCC</span></div>
+</div>

@@ -1,6 +1,6 @@
 +++
 title = "Component sampler"
-date = 2026-09-07
+date = 2026-07-01
 slug = "component-sampler"
 summary = "A demonstration of video commentary, columns, and callouts."
 tags = ["development", "engineering", "faith"]
