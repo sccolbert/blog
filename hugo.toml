@@ -1,0 +1,26 @@
+baseURL = 'https://example.com/'
+languageCode = 'en-us'
+title = 'Chris'
+enableRobotsTXT = true
+
+[[module.mounts]]
+source = 'static'
+target = 'static'
+excludeFiles = ['**/.gitkeep']
+
+[pagination]
+pagerSize = 10
+
+[taxonomies]
+tag = 'tags'
+
+[params]
+description = 'Notes on development, engineering, faith, and life.'
+
+[permalinks]
+posts = '/posts/:slug/'
+
+[markup.goldmark.renderer]
+# Markdown-notation shortcodes emit HTML before Markdown rendering.
+# Content is trusted, repository-authored input.
+unsafe = true

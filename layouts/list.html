@@ -1,0 +1,7 @@
+{{ define "main" }}
+<div class="prose"><h1>{{ .Title }}</h1>{{ .Content }}</div>
+{{ $pager := .Paginate .RegularPages.ByDate.Reverse }}
+{{ range $pager.Pages }}{{ partial "post-summary.html" . }}
+{{ else }}<p>No posts yet.</p>{{ end }}
+{{ partial "pagination.html" $pager }}
+{{ end }}

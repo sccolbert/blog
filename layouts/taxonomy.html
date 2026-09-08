@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<p>Browse posts by topic. A post can belong to more than one.</p>
+<ul class="tag-index">
+  {{ range .Data.Terms.Alphabetical }}
+  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> ({{ .Count }})</li>
+  {{ else }}<li>Topics will appear here as posts are published.</li>{{ end }}
+</ul>
+{{ end }}

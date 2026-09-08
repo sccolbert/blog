@@ -1,0 +1,10 @@
+/public/
+/resources/
+/.hugo_build.lock
+/.wrangler/
+/node_modules/
+.DS_Store
+.env
+.env.*
+.dev.vars
+.dev.vars.*

@@ -1,0 +1,17 @@
+{{- $id := .Get "id" -}}
+{{- $title := .Get "title" -}}
+{{- if or (not $id) (ne (len (findRE `^[A-Za-z0-9_-]{11}$` $id)) 1) -}}
+  {{- errorf "video-commentary requires an 11-character YouTube id at %s" .Position -}}
+{{- end -}}
+{{- if not $title -}}{{- errorf "video-commentary requires a title at %s" .Position -}}{{- end -}}
+<div class="video-commentary">
+  <div class="video-player">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ $id }}" title="{{ $title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    <p class="video-link"><a href="https://www.youtube.com/watch?v={{ $id }}">Watch on YouTube</a></p>
+  </div>
+<div class="video-notes">
+
+{{ .Inner }}
+
+</div>
+</div>

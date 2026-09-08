@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="intro prose"><h1>{{ .Title }}</h1>{{ .Content }}</section>
+<section aria-label="Recent posts">
+  {{ $pager := .Paginate (where site.RegularPages "Section" "posts") }}
+  {{ range $pager.Pages }}{{ partial "post-summary.html" . }}
+  {{ else }}<p>First posts coming soon.</p>{{ end }}
+  {{ partial "pagination.html" $pager }}
+</section>
+{{ end }}

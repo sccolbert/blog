@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h1>Tagged: {{ .Title }}</h1>
+{{ .Content }}
+{{ $pager := .Paginate .RegularPages.ByDate.Reverse }}
+{{ range $pager.Pages }}{{ partial "post-summary.html" . }}{{ end }}
+{{ partial "pagination.html" $pager }}
+{{ end }}

@@ -1,0 +1,6 @@
+<article class="post-summary">
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }} <small>(draft)</small>{{ end }}</h2>
+  <div>{{ .Summary }}</div>
+  {{ partial "tags.html" . }}
+</article>

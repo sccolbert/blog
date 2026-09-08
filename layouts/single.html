@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article>
+  <header class="article-header prose">
+    {{ if eq .Section "posts" }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    {{ if .Draft }}<p class="draft-label">Draft · demonstration or work in progress</p>{{ end }}
+    {{ partial "tags.html" . }}
+  </header>
+  <div class="content">{{ .Content }}</div>
+</article>
+{{ end }}
