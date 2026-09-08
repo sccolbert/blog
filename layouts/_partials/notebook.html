@@ -8,8 +8,8 @@
       <path d="M318 115H335V120H318"/>
       {{/* The slider index is x=106 when the jaws meet and x=190 at 3.160 inches. */}}
       {{- $railPitch := div 84.0 3.160 -}}
-      {{ range seq 1 39 }}<path d="M{{ add 106 (mul (mul . 0.2) $railPitch) }} 109v{{ if eq (mod . 5) 0 }}9{{ else }}5{{ end }}" stroke-width=".7" stroke-opacity=".7"/>{{ end }}
-      {{ range seq 1 7 }}<text x="{{ add 106 (mul . $railPitch) }}" y="126" text-anchor="middle" fill="currentColor" stroke="none" font-family="monospace" font-size="6">{{ . }}</text>{{ end }}
+      {{ range seq 0 39 }}<path d="M{{ add 106 (mul (mul . 0.2) $railPitch) }} 109v{{ if eq (mod . 5) 0 }}9{{ else }}5{{ end }}" stroke-width=".7" stroke-opacity=".7"/>{{ end }}
+      {{ range seq 0 7 }}<text x="{{ add 106 (mul . $railPitch) }}" y="126" text-anchor="middle" fill="currentColor" stroke="none" font-family="monospace" font-size="6">{{ . }}</text>{{ end }}
       <path d="M65 108V72L72 62 80 89V108" fill="#293f36" stroke-width="1.5"/>
       <path d="M61 108H81V173L96 196V204L73 192 61 167Z" fill="#293f36" stroke-width="1.8"/>
       <g class="caliper-slider" transform="translate(48 0)">
