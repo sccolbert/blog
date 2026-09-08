@@ -126,4 +126,36 @@ td, th { text-align: left; border-bottom: 1px solid var(--line); padding: .6rem;
   .article-header .tags { justify-content: start; }
   .site-footer { align-items: start; }
 }
-@media (prefers-reduced-motion: no-preference) { a { transition: color .15s ease; } }
+/* Static SVG attributes provide the completed drawing without animation. */
+@media (prefers-reduced-motion: no-preference) {
+  a { transition: color .15s ease; }
+  .notebook {
+    --caliper-duration: 2s;
+    --caliper-delay: .3s;
+    --caliper-easing: cubic-bezier(.45, 0, .55, 1);
+  }
+  .caliper-slider {
+    animation: caliper-open var(--caliper-duration) var(--caliper-easing) var(--caliper-delay) both;
+  }
+  .caliper-needle {
+    transform-box: view-box;
+    transform-origin: 174px 118px;
+    animation: caliper-turn var(--caliper-duration) var(--caliper-easing) var(--caliper-delay) both;
+  }
+  .caliper-annotation {
+    animation: caliper-note .6s ease-out calc(var(--caliper-delay) + var(--caliper-duration)) both;
+  }
+}
+@keyframes caliper-open {
+  from { transform: translateX(-36px); }
+  to { transform: translateX(48px); }
+}
+/* One revolution per .100 inch: 3.160 inches = 31.6 turns = 11,376 degrees. */
+@keyframes caliper-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(11376deg); }
+}
+@keyframes caliper-note {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

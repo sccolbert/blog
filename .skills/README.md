@@ -31,6 +31,9 @@ registered as an agent skill directory.
   caption: "Things worth building on."
 - The caliper's 3.160-inch dimension and handwritten "- John" signature are an
   intentional reference to John 3:16. The signature uses SVG strokes, not a font.
+- The caliper opens once per page load using CSS only: 84 SVG units of jaw travel
+  and 31.6 dial revolutions share the same two-second easing and delay. The note
+  and dimension fade in afterward. Reduced motion shows the finished drawing.
 - Six draft sample posts exercise essays, reflections, short notes, code,
   images, columns, callouts, and YouTube commentary. params.sample labels fiction.
 
