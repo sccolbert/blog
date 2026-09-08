@@ -103,6 +103,48 @@ CI rebuilds the whole site so indexes and tag pages stay consistent, then
 Wrangler uploads assets to Cloudflare. No custom Worker script is needed.
 Node-based deployment tooling runs in CI only; it adds no browser JavaScript.
 
+## CI isolation and dependency updates
+
+The build workflow uses pinned action commit SHAs and disables checkout's
+persisted credentials. `ci/hugo.env` pins the Linux amd64 Hugo version and archive
+SHA-256. The archive is verified **before extraction**; CI never downloads a
+checksum to decide what to trust.
+
+Hugo runs only inside a `FROM scratch` container containing the verified static
+binary. It has no network, no capabilities, no privilege escalation, a non-root
+UID, a read-only root filesystem, and CPU/memory/process limits. Only an allowlisted
+source snapshot is mounted read-only; its output directory is writable and its
+cache is temporary. Git metadata, root .env files, runner credentials, workflow
+command files, and the Docker socket are not mounted. Host environment variables
+are not forwarded; the public base URL is passed as a command argument.
+
+Hugo logs cannot issue GitHub workflow commands. Symlinks and special files in
+production output are rejected before the artifact uploader can follow them.
+The deploy job remains disabled and separate from the build job.
+
+To reproduce CI locally, start Docker and choose a new output directory:
+
+```sh
+bash scripts/ci-build.sh /tmp/blog-ci-output
+```
+
+This downloads the pinned Linux binary and runs it under Docker, including on
+Apple Silicon via amd64 emulation. Your normal native `hugo server` workflow is
+unchanged. Temporary build files and the local scratch image remain available
+for inspection; GitHub-hosted runners discard them when the job ends.
+
+When upgrading Hugo, review the upstream release, independently download and
+hash the Linux amd64 archive, compare the published checksum, and commit the
+version and digest together in `ci/hugo.env`. Update the version in this README
+and run the isolated build. Confirm the new binary remains statically linked.
+For actions, resolve a reviewed release tag in the official repository and
+update both its full commit SHA and version comment.
+
+A pinned checksum detects changed release bytes; it does not prove an initially
+approved release was benign. Containers share a kernel and are not an absolute
+security boundary. A compromised Hugo can still generate malicious site content,
+so build isolation does not replace reviewing what will be published.
+
 ## Project map
 
 - content/: pages and post bundles.
@@ -111,6 +153,7 @@ Node-based deployment tooling runs in CI only; it adds no browser JavaScript.
 - static/: files copied directly into the site.
 - archetypes/: templates for new content.
 - .github/workflows/: validation and deployment.
+- ci/ and scripts/ci-build.sh: pinned renderer and isolated CI build.
 - AGENTS.md: agent working conventions.
 - .skills/: project knowledge and future local workflow documentation.
 - public/ and resources/: generated output, ignored by Git.

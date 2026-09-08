@@ -14,6 +14,9 @@ registered as an agent skill directory.
 - GitHub Actions renders the complete site and Wrangler deploys static assets.
 - Deployment is currently hard-disabled in CI with a false job condition. Builds
   and artifact uploads run normally without Cloudflare credentials.
+- CI verifies Hugo against a committed SHA-256 and executes it only inside an
+  isolated scratch container. Actions are pinned to commit SHAs; checkout does
+  not persist credentials. See README.md for the boundaries and upgrade process.
 - Generated files stay out of Git. Cloudflare handles asset upload reuse.
 - Public GitHub repository: sccolbert/blog, with main as the default branch.
 - Initial visual direction: a personal notebook with parchment, forest green,

@@ -20,7 +20,12 @@ Static Assets. Read README.md and .skills/README.md before making changes.
   Also build with --buildDrafts when changing demonstration components. Check
   generated HTML for correct content and absence of script tags/JS assets.
 - Never edit public/ or resources/ directly; they are generated and ignored.
-- Keep tool versions aligned with .github/workflows/deploy.yml.
+- Keep Hugo's version and reviewed archive hash in ci/hugo.env aligned with the
+  README. Pin actions to full commit SHAs and keep persist-credentials disabled.
+- Run bash scripts/ci-build.sh with a new absolute output path after CI changes.
+  Keep Hugo execution inside the non-root, network-disabled scratch container.
+  Never mount Git metadata, credentials, workflow command files, or Docker's
+  socket into it. Preserve log-command suppression and output symlink rejection.
 - CI builds pull requests and main pushes. Deployment is explicitly disabled by
   a false guard; remove it only when the user asks to enable deployment. Once
   enabled, only main pushes or manual main runs deploy with configuration present.
