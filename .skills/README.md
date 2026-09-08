@@ -12,6 +12,8 @@ registered as an agent skill directory.
 - Video commentary renders beside the player, stacking on smaller screens.
 - No X integration, comments, mailing lists, or application backend.
 - GitHub Actions renders the complete site and Wrangler deploys static assets.
+- Deployment is currently hard-disabled in CI with a false job condition. Builds
+  and artifact uploads run normally without Cloudflare credentials.
 - Generated files stay out of Git. Cloudflare handles asset upload reuse.
 - Public GitHub repository: sccolbert/blog, with main as the default branch.
 - Initial visual direction: a personal notebook with parchment, forest green,

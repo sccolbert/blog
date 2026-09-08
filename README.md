@@ -91,10 +91,12 @@ Tags generate normal HTML navigation pages at /tags/<tag>/.
 4. Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID as GitHub Actions secrets.
    Use an API token scoped to the target account with Workers Scripts edit
    permission. Configure a custom domain in Cloudflare if desired.
-5. Push to main or manually run the workflow on main.
+5. When ready to deploy, remove the leading `false &&` from the deploy job's
+   condition in .github/workflows/deploy.yml, then push to main or run it manually.
 
-Pull requests build production output and validate draft components. Main
-builds deploy once SITE_URL is configured. Before that, CI only builds artifacts.
+Pull requests and main pushes build production output and validate draft
+components. Deployment is explicitly disabled in the workflow, even if SITE_URL
+or Cloudflare credentials exist. CI only builds artifacts until that guard is removed.
 The production environment may optionally have GitHub approval rules.
 
 CI rebuilds the whole site so indexes and tag pages stay consistent, then

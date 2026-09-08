@@ -1,4 +1,4 @@
-name: Build and deploy
+name: Build site
 
 on:
   pull_request:
@@ -42,7 +42,9 @@ jobs:
 
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.SITE_URL != ''
+    # Deployment is intentionally disabled until hosting is ready.
+    # Remove the leading false guard only when deployment is explicitly enabled.
+    if: false && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.SITE_URL != ''
     runs-on: ubuntu-latest
     environment: production
     steps:
